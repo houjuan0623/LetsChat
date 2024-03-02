@@ -2877,6 +2877,7 @@
   "Omnichannel_External_Frame_Encryption_JWK": "加密密钥（JWK）",
   "Omnichannel_External_Frame_Encryption_JWK_Description": "如提供则会使用提供的密钥加密用户的令牌，外部系统需要对数据进行解密才能使用令牌",
   "Omnichannel_External_Frame_URL": "外部框架 URL",
+  "Omnichannel_Management": "(多渠道)客服管理",
   "On": "打开",
   "online": "在线",
   "Online": "在线",
