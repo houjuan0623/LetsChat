@@ -1,7 +1,8 @@
 import { ServiceBroker, Context, ServiceSchema, Serializers } from 'moleculer';
 import EJSON from 'ejson';
 
-import { asyncLocalStorage, License } from '../../server/sdk';
+// import { asyncLocalStorage, License } from '../../server/sdk';
+import { asyncLocalStorage } from '../../server/sdk';
 import { api } from '../../server/sdk/api';
 import { IBroker, IBrokerNode, IServiceMetrics } from '../../server/sdk/types/IBroker';
 import { ServiceClass } from '../../server/sdk/types/ServiceClass';
@@ -61,7 +62,10 @@ class NetworkBroker implements IBroker {
 
 		this.started = this.broker.start();
 
-		this.allowed = License.hasLicense('scalability');
+		// origin
+		// this.allowed = License.hasLicense('scalability');
+		// 破解
+		this.allowed = Promise.resolve(true);;
 	}
 
 	isWhitelisted(list: string[], item: string): boolean {
@@ -132,10 +136,13 @@ class NetworkBroker implements IBroker {
 		const name = instance.getName();
 
 		// Listen for module license
-		instance.onEvent('license.module', async ({ module, valid }) => {
+		instance.onEvent('license.module', async ({ module }) => {
 			if (module === 'scalability') {
 				// Should we believe on the event only? Could it be a call from the CE version?
-				this.allowed = valid ? License.hasLicense('scalability') : Promise.resolve(false);
+				// origin
+				// this.allowed = valid ? License.hasLicense('scalability') : Promise.resolve(false);
+				// 破解
+				this.allowed = Promise.resolve(true);
 				// console.log('on license.module', { allowed: this.allowed });
 			}
 		});

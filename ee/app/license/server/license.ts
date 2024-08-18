@@ -135,11 +135,34 @@ class LicenseClass {
 	}
 
 	getLicenses(): IValidLicense[] {
-		return this.licenses;
+		// origin
+		// return this.licenses;
+		// 破解
+		const licenseData: ILicense = {
+			url: 'https://example.com/license',
+			expiry: '2090-12-31', 
+			maxActiveUsers: 100,
+			modules: ['core', 'video-conference', 'ldap'],
+			maxGuestUsers: 20,
+			maxRoomsPerGuest: 5,
+			tag: {
+				name: 'Enterprise',
+				color: '#FFD700' // 金色
+			}
+		};
+		
+		const validLicenseData: IValidLicense = {
+			valid: true,
+			license: licenseData
+		};
+		return [validLicenseData];
 	}
 
 	getModules(): string[] {
-		return [...this.modules];
+		// origin
+		// return [...this.modules];
+		// 破解
+		return ['pojie1', 'pojie2']
 	}
 
 	getTags(): ILicenseTag[] {
@@ -277,19 +300,31 @@ export function setURL(url: string): void {
 }
 
 export function hasLicense(feature: string): boolean {
-	return License.hasModule(feature);
+	// origin
+	// return License.hasModule(feature);
+	// 破解
+	return true;
 }
 
 export function isEnterprise(): boolean {
+	// origin
 	return License.hasAnyValidLicense();
+	// 破解
+	return true;
 }
 
 export function getMaxGuestUsers(): number {
-	return maxGuestUsers;
+	// origin
+	// return maxGuestUsers;
+	// 破解
+	return 100000000000;
 }
 
 export function getMaxActiveUsers(): number {
-	return maxActiveUsers;
+	// origin
+	// return maxActiveUsers;
+	// 破解
+	return 100000000000;
 }
 
 export function getLicenses(): IValidLicense[] {

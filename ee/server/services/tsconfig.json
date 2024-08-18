@@ -36,11 +36,16 @@
 
 		"outDir": "./dist",
 
-		// "sourceMap": true,
+		"sourceMap": true,
 		// "declaration": true,
 		// "removeComments": false,
 		// "emitDecoratorMetadata": true,
 		// "experimentalDecorators": true,
+		 // ...其他编译选项
+		 "typeRoots": [
+      "./node_modules/@types",
+      "./ddp-streamer/types" // 替换为您的自定义类型声明文件所在的目录
+    ]
 	},
 	"exclude": [
 		"./dist",

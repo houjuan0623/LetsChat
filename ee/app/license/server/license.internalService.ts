@@ -38,11 +38,17 @@ class LicenseService extends ServiceClass implements ILicense {
 	}
 
 	hasLicense(feature: string): boolean {
-		return hasLicense(feature);
+		// origin
+		// return hasLicense(feature);
+		// 破解
+		return true;
 	}
 
 	isEnterprise(): boolean {
-		return isEnterprise();
+		// origin
+		// return isEnterprise();
+		// 破解
+		return true;
 	}
 
 	getModules(): string[] {
