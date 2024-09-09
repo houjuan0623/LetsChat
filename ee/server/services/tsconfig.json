@@ -5,7 +5,7 @@
 		"lib": ["esnext", "dom"],
 		"types" : [
 			"node", // 包含Nodejs内置模板和全局变量的类型声明
-			"./ddp-streamer/types"
+			// "./ddp-streamer/types"
 		],
 
 		"allowJs": true,
@@ -44,6 +44,11 @@
 		// "removeComments": false,
 		// "emitDecoratorMetadata": true,
 		// "experimentalDecorators": true,
+		 // ...其他编译选项
+		 "typeRoots": [
+      "./node_modules/@types",
+      "./ddp-streamer/types" // 替换为您的自定义类型声明文件所在的目录
+    ]
 	},
 	"exclude": [
 		"./dist",

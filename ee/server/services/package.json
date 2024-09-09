@@ -6,8 +6,10 @@
 	"scripts": {
 		"dev": "pm2 start ecosystem.config.js",
 		"pm2": "pm2",
+		"monit": "pm2 monit",
 		"start": "ts-node index.ts",
 		"debug-brk": "pm2 start ecosystem.config.js",
+		"stop": "pm2 stop all & pm2 delete all",
 		"typecheck": "tsc --noEmit --skipLibCheck",
 		"build": "tsc",
 		"build-containers": "npm run build && docker-compose build && rm -rf ./dist",

@@ -1,7 +1,5 @@
 const watch = ['.', '../broker.ts', '../../../server/sdk'];
-
 let debugPort = 10000;
-
 module.exports = {
 	apps: [{
 		name: 'authorization',
@@ -14,9 +12,9 @@ module.exports = {
 		name: 'stream-hub',
 	}, {
 		name: 'ddp-streamer',
-	}].map((app) =>Object.assign(app, {
-		// script: `node --inspect-brk=0.0.0.0:${debugPort++} -r ts-node/register ${ app.name }/service.ts`,
-		script: `ts-node --files ${ app.name }/service.ts`,
+	}].map((app) => Object.assign(app, {
+		// script: `node --inspect-brk=0.0.0.0:${debugPort++} -r ts-node/register/transpile-only ${ app.name }/service.ts`,
+		script: app.script || `ts-node --files ${ app.name }/service.ts`,
 		watch: app.watch || ['.', '../broker.ts', '../../../server/sdk', '../../../server/modules'],
 		instances: 1,
 		env: {
