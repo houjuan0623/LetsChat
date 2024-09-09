@@ -3,7 +3,10 @@
 		"module": "CommonJS",
 		"target": "es2018",
 		"lib": ["esnext", "dom"],
-		"types" : ["node"],
+		"types" : [
+			"node", // 包含Nodejs内置模板和全局变量的类型声明
+			"./ddp-streamer/types"
+		],
 
 		"allowJs": true,
 		"checkJs": false,
@@ -36,7 +39,7 @@
 
 		"outDir": "./dist",
 
-		// "sourceMap": true,
+		"sourceMap": true,
 		// "declaration": true,
 		// "removeComments": false,
 		// "emitDecoratorMetadata": true,

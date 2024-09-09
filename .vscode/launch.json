@@ -1,0 +1,187 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "unitDebug",
+			"port": 9229,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": true,
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			},
+			"program": "${workspaceFolder}/node_modules/.bin/_mocha",
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"name": "Attach to meteor debug",
+			"type": "node",
+			"request": "attach",
+			"port": 9229,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": true,
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			},
+			"protocol": "inspector"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Frontend (Chrome)",
+			"url": "http://localhost:3000",
+			"webRoot": "${workspaceFolder}",
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Server (debug)",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "debug"],
+			"port": 9229,
+			"timeout": 300000, //Rocket.Chat really takes some time to startup, so play it safe
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			},
+			"protocol": "inspector"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Server (debug-brk)",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "debug-brk"],
+			"port": 9229,
+			"timeout": 300000, //Rocket.Chat really takes some time to startup, so play it safe
+			"env": {
+				// "DDP_DEFAULT_CONNECTION_URL": "http://172.16.17.193:3000",
+				"MONGO_URL": "mongodb://127.0.0.1:27017/rocketchat",
+				"METEOR_MONGO_BIND_IP": "0.0.0.0",
+				// "REMOTE_URL": "http://172.16.17.28:18760",
+                "TRANSPORTER": "nats"
+			},
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			},
+			"protocol": "inspector"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Server (Testmode)",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "debug"],
+			"port": 9229,
+			"timeout": 300000, //Rocket.Chat really takes some time to startup, so play it safe
+			"sourceMapPathOverrides": {
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"meteor://💻app/packages/rocketchat:*": "${workspaceFolder}/packages/rocketchat-*",
+				"meteor://💻app/packages/chatpal:*": "${workspaceFolder}/packages/chatpal-*",
+				"meteor://💻app/packages/assistify:*": "${workspaceFolder}/packages/assistify-*"
+			},
+			"env": {
+				"TEST_MODE": "true"
+			},
+			"protocol": "inspector"
+		},
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Debug authorization",
+			"port": 10000,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true
+		},
+		{
+			"name": "Debug presence",
+			"type": "node",
+			"request": "attach",
+			"port": 10001,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true
+		},
+		{
+			"name": "Debug account",
+			"type": "node",
+			"request": "attach",
+			"port": 10002,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true
+		},
+		{
+			"name": "Debug stream-hub",
+			"type": "node",
+			"request": "attach",
+			"port": 10003,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true
+		},
+		{
+			"name": "Debug ddp-streamer",
+			"type": "node",
+			"request": "attach",
+			"port": 10004,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true
+		},
+		{
+			"type": "node",
+			"request": "attach",
+			"name": "Debug attach",
+			"port": 10000,
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"cwd": "${workspaceFolder}/ee/server/services",
+			"sourceMaps": true,
+			"preLaunchTask": "Start Services with PM2"
+		},
+	],
+	"compounds": [
+		{
+			"name": "Server + Frontend",
+			"configurations": ["Server (debug-brk)", "Frontend (Chrome)"]
+		},
+		{
+			"name": "debug services",
+			// 注意：启动之前要先用inspect的方式启动各个service，然后才能attach上去
+			"configurations": ["Debug account", "Debug authorization", "Debug ddp-streamer", "Debug presence", "Debug stream-hub"]
+		}
+	]
+}
