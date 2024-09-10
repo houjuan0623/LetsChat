@@ -20,7 +20,9 @@ module.exports = {
 		env: {
 			MOLECULER_LOG_LEVEL: 'info',
 			TRANSPORTER: 'nats://localhost:4222',
-			MONGO_URL: 'mongodb://localhost:3001/meteor',
+			// MONGO_URL: 'mongodb://localhost:3001/meteor',
+			MONGO_URL: 'mongodb://127.0.0.1:27017/rocketchat',
+
 		},
 	})),
 };

@@ -308,7 +308,7 @@ export function hasLicense(feature: string): boolean {
 
 export function isEnterprise(): boolean {
 	// origin
-	return License.hasAnyValidLicense();
+	// return License.hasAnyValidLicense();
 	// 破解
 	return true;
 }

@@ -65,7 +65,7 @@ class NetworkBroker implements IBroker {
 		// origin
 		// this.allowed = License.hasLicense('scalability');
 		// 破解
-		this.allowed = Promise.resolve(true);;
+		this.allowed = Promise.resolve(true);
 	}
 
 	isWhitelisted(list: string[], item: string): boolean {
