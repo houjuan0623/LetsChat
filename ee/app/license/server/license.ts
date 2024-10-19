@@ -260,17 +260,17 @@ export function addLicense(encryptedLicense: string): boolean {
 	console.log('### New Enterprise License');
 
 	try {
-		const decrypted = decrypt(encryptedLicense);
-		if (!decrypted) {
-			return false;
-		}
+		// const decrypted = decrypt(encryptedLicense);
+		// if (!decrypted) {
+		// 	return false;
+		// }
 
-		if (process.env.LICENSE_DEBUG && process.env.LICENSE_DEBUG !== 'false') {
-			console.log('##### Raw license ->', decrypted);
-		}
+		// if (process.env.LICENSE_DEBUG && process.env.LICENSE_DEBUG !== 'false') {
+		// 	console.log('##### Raw license ->', decrypted);
+		// }
 
-		License.addLicense(JSON.parse(decrypted));
-		License.lockLicense(encryptedLicense);
+		// License.addLicense(JSON.parse(decrypted));
+		// License.lockLicense(encryptedLicense);
 
 		return true;
 	} catch (e) {

@@ -26,7 +26,7 @@ settings.get('Enterprise_License', (key, license) => {
 	}
 
 	if (!addLicense(license)) {
-		Settings.updateValueById('Enterprise_License_Status', 'Invalid');
+		Settings.updateValueById('Enterprise_License_Status', 'Valid');
 		return;
 	}
 
