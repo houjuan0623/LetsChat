@@ -167,13 +167,13 @@ jobs:
         tar czf Rocket.Chat.test.tar.gz ./build-test
 
     - name: Store build for tests
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: build-test
         path: /tmp/Rocket.Chat.test.tar.gz
 
     - name: Store build
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: build
         path: /tmp/build
